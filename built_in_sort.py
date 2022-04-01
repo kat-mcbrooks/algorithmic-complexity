@@ -36,15 +36,15 @@ def sort_data():
     a.sort()
 '''
 
-a = calcRunTime(sort_function, smallest_array)
+a = calcRunTime(smallest_array, sort_function)
 print(f"Average time taken to run smallest array: {a}")
-b = calcRunTime(sort_function, smaller_array)
+b = calcRunTime(smaller_array, sort_function)
 print(f"Average time taken to run smaller array: {b}")
-e = calcRunTime(sort_function, middle_array)
+e = calcRunTime(middle_array, sort_function)
 print(f"Average time taken to run middle array: {e}")
-f = calcRunTime(sort_function, bigger_array)
+f = calcRunTime(bigger_array, sort_function)
 print(f"Average time taken to run bigger array: {f}")
-g = calcRunTime(sort_function, biggest_array)
+g = calcRunTime( biggest_array, sort_function)
 print(f"Average time taken to run biggest array: {g}")
 
 plt.plot([10, 1000, 50000, 75000, 100000], [a, b, e, f, g])
