@@ -11,24 +11,30 @@ import numpy as np
 a = np.random.randint(1000, size=10)
 
 '''
+biggest_array = '''
+import numpy as np
 
-codeToExecute = '''
+a = np.random.randint(1000, size=10000)
+
+'''
+sort_function = '''
 def sort_data():
     a.sort()
 '''
 
-def timer(codeToRun, setupCode):
-    times_50k_reps = timeit.repeat(
-    setup=smallest_array, stmt=codeToExecute, repeat=50000
-)
+def calcRunTime(setupCode, codeToRun):
+    times = timeit.repeat(setup=setupCode, stmt=codeToRun,  repeat=5000, number = 1)
     sum = 0
-    for i in times_50k_reps: 
+    for i in times: 
         sum += i
-    averageTime = sum / 50000
-    return averageTime
+    averageTime = sum / 5000
+    return averageTime * 100
+   
 
-print(f"Time taken to run smallest array: {averageTime}")
-
+a = calcRunTime(sort_function, smallest_array)
+print(f"Average time taken to run smallest array: {a}")
+b = calcRunTime(sort_function, biggest_array)
+print(f"Average time taken to run biggest array: {b}")
 
 # # test lists/arrays of random numbers
 # a = random.randint(1000, size=(10))
