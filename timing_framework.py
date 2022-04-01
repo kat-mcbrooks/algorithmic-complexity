@@ -17,12 +17,17 @@ def sort_data():
     a.sort()
 '''
 
+def timer(codeToRun, setupCode):
+    times_50k_reps = timeit.repeat(
+    setup=smallest_array, stmt=codeToExecute, repeat=50000
+)
+    sum = 0
+    for i in times_50k_reps: 
+        sum += i
+    averageTime = sum / 50000
+    return averageTime
 
-time_elapsed = timeit.timeit(
-    setup=smallest_array, stmt=codeToExecute, number=50000
-)  # timeit automatically runs codeToExecute 1,000,000 times, unless you specify a different number = value
-
-print(f"Time taken to run smallest array: {time_elapsed}")
+print(f"Time taken to run smallest array: {averageTime}")
 
 
 # # test lists/arrays of random numbers
