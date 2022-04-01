@@ -4,25 +4,8 @@ import time
 # from numpy import random, sort
 # import numpy as np
 
-# code snippet to be executed only once
-smallest_array = '''
-import numpy as np
-
-a = np.random.randint(1000, size=10)
-
-'''
-biggest_array = '''
-import numpy as np
-
-a = np.random.randint(1000, size=10000)
-
-'''
-sort_function = '''
-def sort_data():
-    a.sort()
-'''
-
 def calcRunTime(setupCode, codeToRun):
+    # number = 1 so it only runs the code once, but repeats 5000 times so I can take an average
     times = timeit.repeat(setup=setupCode, stmt=codeToRun,  repeat=5000, number = 1)
     sum = 0
     for i in times: 
@@ -31,10 +14,7 @@ def calcRunTime(setupCode, codeToRun):
     return averageTime * 100
    
 
-a = calcRunTime(sort_function, smallest_array)
-print(f"Average time taken to run smallest array: {a}")
-b = calcRunTime(sort_function, biggest_array)
-print(f"Average time taken to run biggest array: {b}")
+
 
 # # test lists/arrays of random numbers
 # a = random.randint(1000, size=(10))
