@@ -24,14 +24,14 @@ idx = 0
 times = []
 # create testLists in every size, with elements as integers between 1 and 20. Assign to setupCode.
 for size in listSizes:
-    testList = random.choices((range(1, 20)), k=size)
     setupCode = f"""
 from reverse import reverse_data
-{testList}
-print(f"now running reverse with {len(testList)} element list")
+import random
+testList = random.choices((range(1, 20)), k={size})
+
 """
-    reverse_function = f"""
-{reverse_data(testList)}
+    reverse_function = """
+reverse_data(testList)
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
     time = calcRunTime(setupCode, reverse_function)
