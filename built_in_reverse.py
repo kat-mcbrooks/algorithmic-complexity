@@ -14,6 +14,7 @@ testList = random.choices((range(1, 20)), k={size})
 """
     reverse_function = f"""
 testList.reverse()
+return testList
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
     time = calcRunTime(setupCode, reverse_function)

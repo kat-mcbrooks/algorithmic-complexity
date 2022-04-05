@@ -15,6 +15,7 @@ testList = random.choices((range(1, 20)), k={size})
 """
     shuffle_function = f"""
 random.shuffle(testList)
+return testList
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
     time = calcRunTime(setupCode, shuffle_function)

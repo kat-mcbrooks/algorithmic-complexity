@@ -16,6 +16,7 @@ print(f"now running sort with {size} element list")
 """
     sort_function = f"""
 {testList}.sort()
+return {testList}
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
     time = calcRunTime(setupCode, sort_function)
