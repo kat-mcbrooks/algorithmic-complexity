@@ -3,21 +3,7 @@ from timing_framework import calcRunTime
 import numpy as np
 import random
 
-
-def reverse_data(a):
-    i = 0
-    size = len(a)
-    n = int(size / 2)
-    while i < n:
-        first = a[i]
-        last = a[size - 1 - i]
-        a[i] = last
-        a[size - 1 - i] = first
-        i += 1
-    return a
-
-
-# create array of integers in increments of 5000 up to 100,000
+# create list of integers in increments of 5000 up to 100,000
 listSizes = list(range(0, 100000, 5000))
 # print(listSizes)
 idx = 0
@@ -26,12 +12,11 @@ times = []
 for size in listSizes:
     testList = random.choices((range(1, 20)), k=size)
     setupCode = f"""
-from reverse import reverse_data
 {testList}
-print(f"now running reverse with {len(testList)} element list")
+
 """
     reverse_function = f"""
-{reverse_data(testList)}
+{testList}.reverse()
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
     time = calcRunTime(setupCode, reverse_function)
@@ -42,9 +27,11 @@ print(f"now running reverse with {len(testList)} element list")
 print(times)
 
 plt.plot(listSizes, times)
-
+plt.title("Built-in reverse")
 plt.ylabel("Time taken to run")
 plt.xlabel("List size")
 
 plt.show()  # display the graph
-plt.savefig("./graphed_results/reverse.png")  # savefig, don't show
+plt.savefig("./graphed_results/built_in_reverse.png")  # savefig, don't show
+
+#
