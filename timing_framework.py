@@ -1,18 +1,18 @@
 import timeit
+
 # from numpy import random, sort
 # import numpy as np
 
+
 def calcRunTime(setupCode, codeToRun):
     # number = 1 so it only runs the code once, but repeats 5000 times so I can take an average
-    
-    runTimes = timeit.repeat(setup=setupCode, stmt=codeToRun,  repeat=5000, number=1)
-    sum = 0
-    for i in runTimes: 
-        sum += i
-    averageTime = sum / 5000
-    return averageTime * 100000
-   
 
+    runTimes = timeit.repeat(setup=setupCode, stmt=codeToRun, repeat=5, number=1)
+    sum = 0
+    for i in runTimes:
+        sum += i
+    averageTime = sum / 5
+    return averageTime * 100000  # multiple it by 100000 just to make it easier to read
 
 
 # # test lists/arrays of random numbers

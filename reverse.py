@@ -2,66 +2,75 @@ import matplotlib.pyplot as plt
 from timing_framework import calcRunTime
 import numpy as np
 import random
+
 # code snippet to be executed only once
-smallest_array = '''
+smallest_array = """
 import numpy as np
 
 a = np.random.randint(1000, size=10)
 
-'''
-smaller_array = '''
+"""
+smaller_array = """
 import numpy as np
 
 a = np.random.randint(1000, size=1000)
 
-'''
-middle_array = '''
+"""
+middle_array = """
 import numpy as np
 
 a = np.random.randint(1000, size=50000)
 
-'''
-bigger_array = '''
+"""
+bigger_array = """
 import numpy as np
 
 a = np.random.randint(1000, size=75000)
 
-'''
-biggest_array = '''
+"""
+biggest_array = """
 import numpy as np
 
 a = np.random.randint(1000, size=100000)
 
-'''
+"""
+
+
 def reverse_data(a):
-    i=0
+    i = 0
     size = len(a)
-    n=int(size/2)
+    n = int(size / 2)
     while i < n:
         first = a[i]
-        last = a[size-1-i]
+        last = a[size - 1 - i]
         a[i] = last
-        a[size-1-i] = first 
+        a[size - 1 - i] = first
         i += 1
     return a
 
-arrSizes = list(range(1, 100000, 5000))
-print(arrSizes)
-idx = 0 
-times = [] 
-for size in arrSizes:
-    testArr = random.choices((range(1, 20)), k=size)
-    setupCode = f'''
-{testArr}
-'''
-    reverse_function = f'''
-{reverse_data(testArr)}
-'''
+
+# create array of integers in increments of 5000 up to 100,000
+listSizes = list(range(0, 100000, 5000))
+# print(listSizes)
+idx = 0
+times = []
+# create testLists in every size, with elements as integers between 1 and 20. Assign to setupCode.
+for size in listSizes:
+    testList = random.choices((range(1, 20)), k=size)
+    setupCode = f"""
+from reverse import reverse_data
+{testList}
+print(f"now running reverse with {size} element list")
+"""
+    reverse_function = f"""
+{reverse_data(testList)}
+"""
     time = calcRunTime(setupCode, reverse_function)
-    print(f"Average time taken to run array {idx}: {time}")
+    print(f"Average time taken to run array {size} element list: {time}")
     idx += 1
-    times.append(time) 
-    print(times)
+    times.append(time)
+
+print(times)
 
 # a = np.random.randint(1000, size=10)
 # b = np.random.randint(1000, size=1000)
@@ -70,8 +79,8 @@ for size in arrSizes:
 # e = np.random.randint(1000, size=100000)
 # f = np.random.randint(1000, size=1000000)
 # arrays = [a, b, c, d, e, f]
-# idx = 0 
-# times = [] 
+# idx = 0
+# times = []
 # for x in arrays:
 #     setupCode = f'''
 # array = {x}
@@ -82,16 +91,16 @@ for size in arrSizes:
 #     time = calcRunTime(setupCode, reverse_function)
 #     print(f"Average time taken to run array {idx}: {time}")
 #     idx += 1
-#     times.append(time) 
+#     times.append(time)
 #     print(times)
 
-plt.plot(arrSizes, times)
+plt.plot(listSizes, times)
 
-plt.ylabel('Time taken to run')
-plt.xlabel('Array size')
+plt.ylabel("Time taken to run")
+plt.xlabel("List size")
 
-plt.show() #display the graph
-plt.savefig("./graphed_results/reverse.png")  #savefig, don't show
+plt.show()  # display the graph
+plt.savefig("./graphed_results/reverse.png")  # savefig, don't show
 
 # # a = calcRunTime(smallest_array, reverse_function)
 # # print(f"Average time taken to run smallest array: {a}")
@@ -122,7 +131,7 @@ plt.savefig("./graphed_results/reverse.png")  #savefig, don't show
 # #         first = a[i]
 # #         last = a[size-1-i]
 # #         a[i] = last
-# #         a[size-1-i] = first 
+# #         a[size-1-i] = first
 # #         i += 1
 # #     print(a)
 # # reverse_data()
