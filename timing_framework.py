@@ -10,4 +10,4 @@ def calcRunTime(setupCode, codeToRun):
     for i in runTimes:
         sum += i
     averageTime = sum / 5
-    return averageTime * 100000  # multiple it by 100000 just to make it easier to read
+    return averageTime * 100000  # multiply it by 100000 just to make it easier to read
