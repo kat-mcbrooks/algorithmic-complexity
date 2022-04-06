@@ -30,11 +30,11 @@ import random
 testList = random.choices((range(1, 20)), k={size})
 
 """
-    reverse_function = """
+    codeToRun = """
 reverse_data(testList)
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
-    time = calcRunTime(setupCode, reverse_function)
+    time = calcRunTime(setupCode, codeToRun)
     print(f"Average time taken to run array {size} element list: {time}")
     idx += 1
     times.append(time)

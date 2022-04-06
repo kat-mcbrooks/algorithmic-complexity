@@ -14,12 +14,12 @@ for size in listSizes:
 {testList}
 print(f"now running sort with {size} element list")
 """
-    sort_function = f"""
+    codeToRun = f"""
 {testList}.sort()
 return {testList}
 """
     # setupCode should be separated from the reverse function so that the timer is based solely on the reverse_function itself rather than generating the test arrays
-    time = calcRunTime(setupCode, sort_function)
+    time = calcRunTime(setupCode, codeToRun)
     print(f"Average time taken to run array {size} element list: {time}")
     idx += 1
     times.append(time)

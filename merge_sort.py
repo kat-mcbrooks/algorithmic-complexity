@@ -7,7 +7,7 @@ def merge_sort_data(list):
         return list
     mid = len(list) // 2
     # recursively split the list in two, sorting each half and calling the merge method on the final result
-    return merge(left=merge_sort_data(list[:mid]), right=merge_sort_data(list[mid:]))
+    return merge(left_list_sorted=merge_sort_data(list[:mid]), right_list_sorted=merge_sort_data(list[mid:]))
 
 
 def merge(left_list_sorted, right_list_sorted):
@@ -33,17 +33,17 @@ def merge(left_list_sorted, right_list_sorted):
                 merged_result += right[idx_right:]
                 break
             if idx_right == len(right):
-                merged_results += left[idx_left:]
+                merged_result += left[idx_left:]
                 break
         return merged_result
 
 
 # create array of integers in increments of 5000 up to 100,000
 listSizes = list(range(0, 100000, 5000))
-# print(listSizes)
+print(listSizes)
 idx = 0
 times = []
-# create testLists in every size, with elements as integers between 1 and 20. Assign to setupCode.
+# in the setup code, we create testLists in every size, with elements as integers between 1 and 20. setupCode is separated from the algorithm being tested so that the timer is based solely on the algorithm itself rather than generating the test arrays
 for size in listSizes:
     setupCode = f"""
 from merge_sort import merge_sort_data
@@ -53,11 +53,12 @@ testList = random.choices((range(1, 20)), k={size})
     codeToRun = """
 merge_sort_data(testList)
 """
-    # setupCode should be separated from the sort function so that the timer is based solely on the sort_function itself rather than generating the test arrays
+
     time = calcRunTime(setupCode, codeToRun)
     print(f"Average time taken to run {size} element list: {time}")
     idx += 1
     times.append(time)
+
 
 print(times)
 
