@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from timing_framework import calcRunTime
+from timer_timeit import calcRunTime
 
 
 def bubble_sort_data(list):

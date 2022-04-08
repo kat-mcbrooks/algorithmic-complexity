@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from timing_framework import calcRunTime
+from timer_timeit import calcRunTime
 import numpy as np
 import random
 

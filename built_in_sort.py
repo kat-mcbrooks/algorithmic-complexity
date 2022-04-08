@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from timing_framework import calcRunTime
+from timer_timeit import calcRunTime
 import random
 
 # create list of integers in increments of 5000 up to 100,000

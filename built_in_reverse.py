@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from timing_framework import calcRunTime
+from timer_timeit import calcRunTime
 
 # create list of integers in increments of 5000 up to 100,000
 listSizes = list(range(0, 100000, 5000))
