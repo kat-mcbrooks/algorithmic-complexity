@@ -2,8 +2,8 @@ from timer_simple import generateTestDataLists, calcTimes
 from graph_plotter import plot_times
 
 
-def reverseFunction(list):
-    return list.reverse()
+def sortFunction(list):
+    return list.sort()
 
 
 testData = generateTestDataLists()[0]
@@ -12,7 +12,7 @@ listSizes = generateTestDataLists()[1]
 #     print(f"list with {len(l)} elements")
 
 
-times = calcTimes(function=reverseFunction, data=testData, repetitions=10000)
+times = calcTimes(function=sortFunction, data=testData, repetitions=10000)
 print(times)
 
-plot_times(listSizes, times, "built-in-reverse")
+plot_times(listSizes, times, "built-in-sort")

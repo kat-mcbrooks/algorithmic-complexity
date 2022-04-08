@@ -14,24 +14,24 @@ def generateTestDataLists():
     return [testLists, listSizes]
 
 
-def calcRunTime(codeToRun, testList):
+def calcRunTime(codeToRun, testList, repetitions):
     i = 0
     total = 0
-    while i < 10000:
+    while i < repetitions:
         start_time = time.perf_counter()
         codeToRun(testList)
         finish_time = time.perf_counter()
         time_elapsed = finish_time - start_time
         total += time_elapsed
         i += 1
-    averageTimeElapsed = total / 10000
+    averageTimeElapsed = total / repetitions
     return averageTimeElapsed
 
 
-def calcTimes(function, data):
+def calcTimes(function, data, repetitions):
     times = []
     for l in data:
-        time = calcRunTime(codeToRun=function, testList=l)
+        time = calcRunTime(codeToRun=function, testList=l, repetitions=repetitions)
         print(f"Average time taken to run with {len(l)} element list: {time}")
         times.append(time)
     return times

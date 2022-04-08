@@ -6,7 +6,11 @@ Workshop and exercises to develop an understanding of algorithmic complexity and
 
 The amount of time, storage and/or other resources necessary to execute an algorithm. Our aim is to reduce complexity in our algorithms, i.e. make them more efficient. Efficiency is one of the dimensions of a good piece of code.
 
-#### My approach
+### Results
+
+My reverse function is much slower than built-in reverse but both seem to be linear in complexity.
+
+### My approach
 
 I created a framework to time different algorithms and compare their efficiency. It plots results using matplotlib. First I tested out python in-built functions e.g. sort. Then I wrote my own, trying to be as efficient as possible. Each function is contained in its own file, so run each function file to test its time.
 
