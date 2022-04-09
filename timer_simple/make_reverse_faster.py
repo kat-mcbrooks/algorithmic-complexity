@@ -12,19 +12,29 @@ def inefficient_reverse(test_list):
 
 
 def improved_reverse(test_list):
+    if len(test_list) == 0:
+        return test_list
     newlist = []
     midpoint = len(test_list) // 2
     last_idx = len(test_list) - 1
     i = 0
-    while i < midpoint:
-        newlist[i] = test_list[last_idx - i]
+    while i < len(test_list):
+        # print(i)
+        # print(last_idx)
+        # print(last_idx - i)
+        # print(test_list[last_idx - i])
+        newlist.append(test_list[last_idx - i])
+        i += 1
+    return newlist
 
 
+# improved_reverse([1, 2, 3, 4, 5, 6])
 testData = generateTestDataLists()[0]
 listSizes = generateTestDataLists()[1]
 
-# times = calcTimes(function=myHasDuplicates, data=testData, repetitions=1000)
-times = calcTimes(function=inefficient_reverse, data=testData, repetitions=10)
+times = calcTimes(function=improved_reverse, data=testData, repetitions=50)
+# times = calcTimes(function=inefficient_reverse, data=testData, repetitions=10)
 print(times)
 
-plot_times(listSizes, times, "inefficient reverse")
+# plot_times(listSizes, times, "inefficient reverse")
+plot_times(listSizes, times, "improved reverse")
