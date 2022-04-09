@@ -2,8 +2,8 @@ from timer_simple import generateTestDataLists, calcTimes
 from graph_plotter import plot_times
 
 
-def sortFunction(list):
-    return list.sort()
+def sortFunction(test_list):
+    return test_list.sort()
 
 
 testData = generateTestDataLists()[0]

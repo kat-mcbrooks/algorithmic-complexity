@@ -2,8 +2,8 @@ from timer_simple import generateTestDataLists, calcTimes
 from graph_plotter import plot_times
 
 
-def reverseFunction(list):
-    return list.reverse()
+def reverseFunction(test_list):
+    return test_list.reverse()
 
 
 testData = generateTestDataLists()[0]

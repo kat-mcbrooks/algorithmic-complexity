@@ -3,14 +3,14 @@ from graph_plotter import plot_times
 from random import randint
 
 # Time Complexity: O(n)
-def sortFunction(list):
-    size = len(list)
+def sortFunction(test_list):
+    size = len(test_list)
     # looks at each element starting from the first (i) and compares it with the element that follows (j)
     for i in range(size):
         for j in range(size - i - 1):
-            if list[j] > list[j + 1]:
-                list[j], list[j + 1] = list[j + 1], list[j]
-    return list
+            if test_list[j] > test_list[j + 1]:
+                test_list[j], test_list[j + 1] = test_list[j + 1], test_list[j]
+    return test_list
 
 
 testData = generateTestDataLists()[0]

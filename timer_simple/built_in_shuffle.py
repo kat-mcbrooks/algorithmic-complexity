@@ -3,8 +3,8 @@ from graph_plotter import plot_times
 import random
 
 
-def shuffleFunction(list):
-    return random.shuffle(list)
+def shuffleFunction(test_list):
+    return random.shuffle(test_list)
 
 
 testData = generateTestDataLists()[0]

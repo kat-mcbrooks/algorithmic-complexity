@@ -1,19 +1,18 @@
-import matplotlib.pyplot as plt
 from timer_simple import generateTestDataLists, calcTimes
 from graph_plotter import plot_times
 
 
-def reverseFunction(list):
+def reverseFunction(test_list):
     i = 0
-    size = len(list)
+    size = len(test_list)
     n = int(size / 2)
     while i < n:  # while loop is more efficient in Python than for because for is dynamic
-        first = list[i]
-        last = list[size - 1 - i]
-        list[i] = last
-        list[size - 1 - i] = first
+        first = test_list[i]
+        last = test_list[size - 1 - i]
+        test_list[i] = last
+        test_list[size - 1 - i] = first
         i += 1
-    return list
+    return test_list
 
 
 testData = generateTestDataLists()[0]

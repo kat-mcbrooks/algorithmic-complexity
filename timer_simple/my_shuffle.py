@@ -3,17 +3,17 @@ from graph_plotter import plot_times
 from random import randint
 
 # Time Complexity: O(n), vs using a nested loop which would be O(n2)
-def shuffleFunction(list):
-    i = len(list) - 1  # start at last element of list
+def shuffleFunction(test_list):
+    i = len(test_list) - 1  # start at last element of list
     # shuffle one element at a time, working backwards from last element of list until we get to first element at i=0
     while i >= 0:
         random_idx = randint(0, i)  # get random integer between 0 and the index of the current element to be shuffled
-        list[i], list[random_idx] = (
-            list[random_idx],
-            list[i],
+        test_list[i], test_list[random_idx] = (
+            test_list[random_idx],
+            test_list[i],
         )  # swap the randomly chosen element with the current element
         i -= 1
-    return list
+    return test_list
 
 
 testData = generateTestDataLists()[0]
