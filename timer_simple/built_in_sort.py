@@ -8,8 +8,6 @@ def sortFunction(list):
 
 testData = generateTestDataLists()[0]
 listSizes = generateTestDataLists()[1]
-# for l in testData:
-#     print(f"list with {len(l)} elements")
 
 
 times = calcTimes(function=sortFunction, data=testData, repetitions=10000)
